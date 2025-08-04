@@ -11,10 +11,11 @@ import {
   FiFileText,
 } from 'react-icons/fi';
 import { StatCard, ActivityCard, ContentCard, Tabs, Button, Status, type TabItem } from '../../components/common';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('all');
-
+  const navigate = useNavigate();
   // 아이콘들
   const ClockIcon = () => <FiClock className="w-6 h-6" />;
   const VideoIcon = () => <FiVideo className="w-6 h-6" />;
@@ -101,7 +102,7 @@ const Dashboard: React.FC = () => {
             type="primary"
             color="blue"
             icon={<SearchIcon />}
-            onClick={() => console.log('New collaboration request clicked')}
+            onClick={() => navigate('/consultation/consultation-request')}
           >
             새 협진 요청
           </Button>
@@ -110,34 +111,10 @@ const Dashboard: React.FC = () => {
         <section>
           <h2 className="text-lg font-semibold text-gray-900 mb-4">협진 현황 요약</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <StatCard
-              icon={<ClockIcon />}
-              value="5"
-              label="협진 요청 대기"
-              variant="warning"
-              onClick={() => console.log('Pending requests clicked')}
-            />
-            <StatCard
-              icon={<VideoIcon />}
-              value="3"
-              label="진행 중인 협진"
-              variant="info"
-              onClick={() => console.log('In progress clicked')}
-            />
-            <StatCard
-              icon={<CheckIcon />}
-              value="28"
-              label="완료된 협진"
-              variant="success"
-              onClick={() => console.log('Completed clicked')}
-            />
-            <StatCard
-              icon={<BuildingIcon />}
-              value="12"
-              label="연결된 전문병원"
-              variant="default"
-              onClick={() => console.log('Connected hospitals clicked')}
-            />
+            <StatCard icon={<ClockIcon />} value="5" label="협진 요청 대기" variant="warning" />
+            <StatCard icon={<VideoIcon />} value="3" label="진행 중인 협진" variant="info" />
+            <StatCard icon={<CheckIcon />} value="28" label="완료된 협진" variant="success" />
+            <StatCard icon={<BuildingIcon />} value="12" label="연결된 전문병원" variant="default" />
           </div>
         </section>
 
@@ -160,7 +137,6 @@ const Dashboard: React.FC = () => {
                     status={activity.status}
                     time={activity.time}
                     variant={activity.variant}
-                    onClick={() => console.log('Activity clicked:', activity.id)}
                   />
                 ))}
               </div>
@@ -178,28 +154,28 @@ const Dashboard: React.FC = () => {
               title="전문병원 찾기"
               description="전문 분야별 병원 검색 및 협진 가능 의료진 확인"
               variant="default"
-              onClick={() => console.log('Find hospital clicked')}
+              onClick={() => navigate('/main/hospital-directory')}
             />
             <ContentCard
               icon={<BellIcon />}
               title="긴급 협진 요청"
               description="응급환자 우선 처리를 위한 긴급 협진 요청"
               variant="warning"
-              onClick={() => console.log('Emergency request clicked')}
+              onClick={() => navigate('/consultation/consultation-request')}
             />
             <ContentCard
               icon={<DocumentIcon />}
               title="협진 기록 조회"
               description="환자별 과거 협진 이력 및 의견서 확인"
               variant="info"
-              onClick={() => console.log('View records clicked')}
+              onClick={() => navigate('/consultation/consultation-records')}
             />
             <ContentCard
               icon={<VideoIcon />}
               title="실시간 협진"
               description="진행 중인 화상 협진 참여 및 관리"
               variant="success"
-              onClick={() => console.log('Real-time collaboration clicked')}
+              onClick={() => navigate('/consultation/live-consultation')}
             />
           </div>
         </section>
