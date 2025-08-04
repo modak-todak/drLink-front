@@ -14,6 +14,8 @@ import AccessLogs from './pages/recordsManagement/AccessLogs';
 import HospitalDirectory from './pages/main/HospitalDirectory';
 import NotFound from './pages/NotFound';
 import AddDoctor from './pages/recordsManagement/AddDoctor';
+import FormInputsExample from './components/examples/FormInputsExample';
+import ButtonExample from './components/examples/ButtonExample';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/records/access-logs" element={<AccessLogs />} />
           <Route path="/main/hospital-directory" element={<HospitalDirectory />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/components/form-inputs" element={<FormInputsExample />} />
+          <Route path="/components/button" element={<ButtonExample />} />
         </Route>
       </Routes>
     </Router>
