@@ -21,6 +21,7 @@ import ModalExample from './components/examples/ModalExample';
 import FeedbackExample from './components/examples/FeedbackExample';
 import CardExample from './components/examples/CardExample';
 import NavigationExample from './components/examples/NavigationExample';
+import SidebarExample from './components/examples/SidebarExample';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path="/components/feedback" element={<FeedbackExample />} />
           <Route path="/components/card" element={<CardExample />} />
           <Route path="/components/navigation" element={<NavigationExample />} />
+          <Route path="/components/sidebar" element={<SidebarExample />} />
         </Route>
       </Routes>
     </Router>
