@@ -8,7 +8,7 @@ import {
   Checkbox,
   FileUpload,
   type SelectOption,
-} from '../index';
+} from '../common/index';
 
 const FormInputsExample: React.FC = () => {
   const [textValue, setTextValue] = useState('');

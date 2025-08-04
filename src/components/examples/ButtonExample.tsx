@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, IconButton } from '../index';
+import { Button, IconButton } from '../common/index';
 
 const ButtonExample: React.FC = () => {
   const handleClick = (message: string) => {

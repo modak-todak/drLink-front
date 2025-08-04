@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, ModalWithActions, Button, TextInput, Select, type ModalAction } from '../index';
+import { Modal, ModalWithActions, Button, TextInput, Select, type ModalAction } from '../common/index';
 
 const ModalExample: React.FC = () => {
   const [basicModalOpen, setBasicModalOpen] = useState(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatCard, ContentCard, ActivityCard } from '../index';
+import { StatCard, ContentCard, ActivityCard } from '../common/index';
 
 const CardExample: React.FC = () => {
   // 아이콘들

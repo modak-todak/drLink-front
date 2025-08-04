@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, type TableColumn, type TableData } from '../index';
+import { Table, type TableColumn, type TableData } from '../common/index';
 
 const TableExample: React.FC = () => {
   // Basic Table 컬럼 정의

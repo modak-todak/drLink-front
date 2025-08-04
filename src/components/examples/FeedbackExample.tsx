@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Status, Alert, Progress, Loading } from '../index';
+import { Status, Alert, Progress, Loading } from '../common/index';
 
 const FeedbackExample: React.FC = () => {
   const [alerts, setAlerts] = useState({

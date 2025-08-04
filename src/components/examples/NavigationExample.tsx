@@ -7,7 +7,7 @@ import {
   type BreadcrumbItem,
   type TabItem,
   type DropdownOption,
-} from '../index';
+} from '../common';
 
 const NavigationExample: React.FC = () => {
   const [activeTab, setActiveTab] = useState('tab1');
