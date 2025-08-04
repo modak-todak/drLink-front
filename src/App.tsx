@@ -19,6 +19,7 @@ import ButtonExample from './components/examples/ButtonExample';
 import TableExample from './components/examples/TableExample';
 import ModalExample from './components/examples/ModalExample';
 import FeedbackExample from './components/examples/FeedbackExample';
+import CardExample from './components/examples/CardExample';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/components/table" element={<TableExample />} />
           <Route path="/components/modal" element={<ModalExample />} />
           <Route path="/components/feedback" element={<FeedbackExample />} />
+          <Route path="/components/card" element={<CardExample />} />
         </Route>
       </Routes>
     </Router>

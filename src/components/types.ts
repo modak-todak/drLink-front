@@ -149,3 +149,55 @@ export interface LoadingProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
 }
+
+export type CardType = 'stat' | 'content' | 'activity';
+export type CardVariant = 'default' | 'success' | 'warning' | 'error' | 'info';
+
+export interface CardProps {
+  children: React.ReactNode;
+  type?: CardType;
+  variant?: CardVariant;
+  className?: string;
+  onClick?: () => void;
+}
+
+export interface StatCardProps {
+  icon: React.ReactNode;
+  value: string | number;
+  label: string;
+  change?: {
+    value: string;
+    isPositive: boolean;
+  };
+  variant?: CardVariant;
+  className?: string;
+  onClick?: () => void;
+}
+
+export interface ContentCardProps {
+  icon?: React.ReactNode;
+  title: string;
+  description: string;
+  action?: {
+    label: string;
+    onClick: () => void;
+  };
+  variant?: CardVariant;
+  className?: string;
+  onClick?: () => void;
+}
+
+export interface ActivityCardProps {
+  icon: React.ReactNode;
+  title: string;
+  subtitle?: string;
+  metadata?: string;
+  status?: {
+    label: string;
+    variant: 'success' | 'warning' | 'error' | 'info';
+  };
+  time?: string;
+  variant?: CardVariant;
+  className?: string;
+  onClick?: () => void;
+}
