@@ -123,3 +123,29 @@ export interface ModalWithActionsProps extends Omit<ModalProps, 'children'> {
   actions: ModalAction[];
   children?: React.ReactNode;
 }
+
+export type AlertType = 'success' | 'information' | 'warning' | 'error';
+export type ProgressColor = 'blue' | 'green' | 'red' | 'yellow';
+
+export interface AlertProps {
+  type: AlertType;
+  title: string;
+  message: string;
+  onClose?: () => void;
+  className?: string;
+}
+
+export interface ProgressProps {
+  label: string;
+  value: number;
+  max?: number;
+  color?: ProgressColor;
+  showPercentage?: boolean;
+  className?: string;
+}
+
+export interface LoadingProps {
+  text?: string;
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}
