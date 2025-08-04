@@ -1,3 +1,6 @@
+import React from 'react';
+
+// Base Input Types
 export interface BaseInputProps {
   id?: string;
   name?: string;
@@ -59,6 +62,7 @@ export interface FileUploadProps extends BaseInputProps {
   multiple?: boolean;
 }
 
+// Button Types
 export type ButtonType = 'primary' | 'secondary';
 export type ButtonColor = 'blue' | 'success' | 'danger' | 'warning' | 'purple';
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -76,6 +80,7 @@ export interface ButtonProps {
   fullWidth?: boolean;
 }
 
+// Table Types
 export type TableVariant = 'basic' | 'compact';
 export type StatusType = 'completed' | 'in-progress' | 'pending';
 
@@ -100,6 +105,7 @@ export interface TableProps {
   onActionClick?: (action: string, row: TableData) => void;
 }
 
+// Modal Types
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -124,6 +130,7 @@ export interface ModalWithActionsProps extends Omit<ModalProps, 'children'> {
   children?: React.ReactNode;
 }
 
+// Feedback Types
 export type AlertType = 'success' | 'information' | 'warning' | 'error';
 export type ProgressColor = 'blue' | 'green' | 'red' | 'yellow';
 
@@ -150,6 +157,7 @@ export interface LoadingProps {
   className?: string;
 }
 
+// Card Types
 export type CardType = 'stat' | 'content' | 'activity';
 export type CardVariant = 'default' | 'success' | 'warning' | 'error' | 'info';
 
@@ -202,6 +210,7 @@ export interface ActivityCardProps {
   onClick?: () => void;
 }
 
+// Navigation Types
 export interface BreadcrumbItem {
   label: string;
   href?: string;
@@ -249,5 +258,41 @@ export interface DropdownProps {
   onOptionSelect: (optionId: string) => void;
   placeholder?: string;
   disabled?: boolean;
+  className?: string;
+}
+
+// Sidebar Types
+export interface SidebarItem {
+  id: string;
+  label: string;
+  icon?: React.ReactNode;
+  href?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  badge?: {
+    text: string;
+    variant?: 'success' | 'warning' | 'error' | 'info';
+  };
+}
+
+export interface SidebarCategory {
+  id: string;
+  title: string;
+  items: SidebarItem[];
+  collapsible?: boolean;
+  defaultCollapsed?: boolean;
+}
+
+export interface SidebarProps {
+  categories: SidebarCategory[];
+  activeItem?: string;
+  onItemClick?: (itemId: string) => void;
+  className?: string;
+}
+
+export interface SecurityStatusProps {
+  isSecure: boolean;
+  message: string;
+  subMessage?: string;
   className?: string;
 }

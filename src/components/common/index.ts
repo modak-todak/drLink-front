@@ -39,6 +39,10 @@ export type {
   PaginationProps,
   DropdownOption,
   DropdownProps,
+  SidebarItem,
+  SidebarCategory,
+  SidebarProps,
+  SecurityStatusProps,
 } from './types';
 
 // Components
@@ -66,3 +70,4 @@ export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Tabs } from './Tabs';
 export { default as Pagination } from './Pagination';
 export { default as Dropdown } from './Dropdown';
+export { default as Sidebar } from './Sidebar';
