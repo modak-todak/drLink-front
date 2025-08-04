@@ -201,3 +201,53 @@ export interface ActivityCardProps {
   className?: string;
   onClick?: () => void;
 }
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+  onClick?: () => void;
+}
+
+export interface BreadcrumbsProps {
+  items: BreadcrumbItem[];
+  separator?: React.ReactNode;
+  className?: string;
+}
+
+export interface TabItem {
+  id: string;
+  label: string;
+  disabled?: boolean;
+}
+
+export interface TabsProps {
+  tabs: TabItem[];
+  activeTab: string;
+  onTabChange: (tabId: string) => void;
+  className?: string;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  showPrevNext?: boolean;
+  maxVisiblePages?: number;
+  className?: string;
+}
+
+export interface DropdownOption {
+  id: string;
+  label: string;
+  disabled?: boolean;
+  icon?: React.ReactNode;
+}
+
+export interface DropdownProps {
+  options: DropdownOption[];
+  selectedOption?: string;
+  onOptionSelect: (optionId: string) => void;
+  placeholder?: string;
+  disabled?: boolean;
+  className?: string;
+}

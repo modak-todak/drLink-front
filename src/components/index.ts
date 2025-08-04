@@ -32,6 +32,13 @@ export type {
   StatCardProps,
   ContentCardProps,
   ActivityCardProps,
+  BreadcrumbItem,
+  BreadcrumbsProps,
+  TabItem,
+  TabsProps,
+  PaginationProps,
+  DropdownOption,
+  DropdownProps,
 } from './types';
 
 // Components
@@ -55,3 +62,7 @@ export { default as Card } from './Card';
 export { default as StatCard } from './StatCard';
 export { default as ContentCard } from './ContentCard';
 export { default as ActivityCard } from './ActivityCard';
+export { default as Breadcrumbs } from './Breadcrumbs';
+export { default as Tabs } from './Tabs';
+export { default as Pagination } from './Pagination';
+export { default as Dropdown } from './Dropdown';
