@@ -25,21 +25,21 @@ const IconButton: React.FC<IconButtonProps> = ({
   const getColorClasses = () => {
     if (type === 'primary') {
       const colorClasses = {
-        blue: 'bg-[#2B93D2] hover:bg-[#1D4ED8] text-white',
-        success: 'bg-[#64C35B] hover:bg-[#46A64A] text-white',
-        danger: 'bg-[#DC2626] hover:bg-[#B91C1C] text-white',
-        warning: 'bg-[#F59E0B] hover:bg-[#D97706] text-white',
-        purple: 'bg-[#695EB1] hover:bg-purple-700 text-white',
+        blue: 'bg-blue-500 hover:bg-blue-600 text-white',
+        success: 'bg-green-500 hover:bg-green-600 text-white',
+        danger: 'bg-red-500 hover:bg-red-600 text-white',
+        warning: 'bg-amber-500 hover:bg-amber-600 text-white',
+        purple: 'bg-purple-500 hover:bg-purple-600 text-white',
       };
       return colorClasses[color];
     } else {
       // secondary
       const colorClasses = {
-        blue: 'bg-white hover:bg-gray-50 text-[#2563EB] border border-[#2B93D2]',
-        success: 'bg-white hover:bg-gray-50 text-[#64C35B] border border-[#64C35B]',
-        danger: 'bg-white hover:bg-gray-50 text-[#DC2626] border border-[#DC2626]',
-        warning: 'bg-white hover:bg-gray-50 text-[#F59E0B] border border-[#F59E0B]',
-        purple: 'bg-white hover:bg-gray-50 text-purple-600 border border-purple-600',
+        blue: 'bg-white hover:bg-gray-50 text-blue-500 border border-blue-500',
+        success: 'bg-white hover:bg-gray-50 text-green-500 border border-green-500',
+        danger: 'bg-white hover:bg-gray-50 text-red-500 border border-red-500',
+        warning: 'bg-white hover:bg-gray-50 text-amber-500 border border-amber-500',
+        purple: 'bg-white hover:bg-gray-50 text-purple-500 border border-purple-500',
       };
       return colorClasses[color];
     }

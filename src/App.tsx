@@ -18,6 +18,7 @@ import FormInputsExample from './components/examples/FormInputsExample';
 import ButtonExample from './components/examples/ButtonExample';
 import TableExample from './components/examples/TableExample';
 import ModalExample from './components/examples/ModalExample';
+import FeedbackExample from './components/examples/FeedbackExample';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/components/button" element={<ButtonExample />} />
           <Route path="/components/table" element={<TableExample />} />
           <Route path="/components/modal" element={<ModalExample />} />
+          <Route path="/components/feedback" element={<FeedbackExample />} />
         </Route>
       </Routes>
     </Router>

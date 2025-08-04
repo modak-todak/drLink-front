@@ -22,10 +22,10 @@ const Progress: React.FC<ProgressProps> = ({
 
   const getColorClasses = () => {
     const colorClasses = {
-      blue: 'bg-primary-blue',
-      green: 'bg-primary-green',
-      red: 'bg-primary-red',
-      yellow: 'bg-yellow-600',
+      blue: 'bg-blue-500',
+      green: 'bg-green-500',
+      red: 'bg-red-500',
+      yellow: 'bg-amber-500',
     };
     return colorClasses[color];
   };

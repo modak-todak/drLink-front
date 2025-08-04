@@ -21,6 +21,11 @@ export type {
   ModalProps,
   ModalAction,
   ModalWithActionsProps,
+  AlertType,
+  ProgressColor,
+  AlertProps,
+  ProgressProps,
+  LoadingProps,
 } from './types';
 
 // Components
@@ -37,3 +42,6 @@ export { default as Table } from './Table';
 export { default as Status } from './Status';
 export { default as Modal } from './Modal';
 export { default as ModalWithActions } from './ModalWithActions';
+export { default as Alert } from './Alert';
+export { default as Progress } from './Progress';
+export { default as Loading } from './Loading';

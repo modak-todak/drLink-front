@@ -10,9 +10,9 @@ interface StatusProps {
 const Status: React.FC<StatusProps> = ({ type, className = '' }) => {
   const getStatusClasses = () => {
     const statusClasses = {
-      completed: 'bg-green-50 text-[#64C35B] border-[#64C35B]/20',
-      'in-progress': 'bg-blue-50 text-[#2B93D2] border-[#2B93D2]/20',
-      pending: 'bg-orange-50 text-orange-700 border-orange-300',
+      completed: 'bg-green-50 text-green-500 border-green-500/20',
+      'in-progress': 'bg-blue-50 text-blue-500 border-blue-500/20',
+      pending: 'bg-amber-50 text-amber-500 border-amber-500/20',
     };
     return statusClasses[type];
   };

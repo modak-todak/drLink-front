@@ -44,7 +44,7 @@ const ModalWithActions: React.FC<ModalWithActionsProps> = ({
                 disabled:opacity-50 disabled:cursor-not-allowed
                 ${
                   action.variant === 'primary'
-                    ? 'bg-[#2B93D2] hover:bg-[#1D4ED8] text-white focus:ring-[#2B93D2]'
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500'
                     : 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 focus:ring-gray-500'
                 }
               `}
