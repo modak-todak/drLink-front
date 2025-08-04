@@ -16,6 +16,7 @@ import NotFound from './pages/NotFound';
 import AddDoctor from './pages/recordsManagement/AddDoctor';
 import FormInputsExample from './components/examples/FormInputsExample';
 import ButtonExample from './components/examples/ButtonExample';
+import TableExample from './components/examples/TableExample';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/components/form-inputs" element={<FormInputsExample />} />
           <Route path="/components/button" element={<ButtonExample />} />
+          <Route path="/components/table" element={<TableExample />} />
         </Route>
       </Routes>
     </Router>

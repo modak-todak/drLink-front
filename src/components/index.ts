@@ -13,6 +13,11 @@ export type {
   ButtonColor,
   ButtonSize,
   ButtonProps,
+  TableVariant,
+  StatusType,
+  TableColumn,
+  TableData,
+  TableProps,
 } from './types';
 
 // Components
@@ -25,3 +30,5 @@ export { default as Checkbox } from './Checkbox';
 export { default as FileUpload } from './FileUpload';
 export { default as Button } from './Button';
 export { default as IconButton } from './IconButton';
+export { default as Table } from './Table';
+export { default as Status } from './Status';

@@ -75,3 +75,27 @@ export interface ButtonProps {
   className?: string;
   fullWidth?: boolean;
 }
+
+export type TableVariant = 'basic' | 'compact';
+export type StatusType = 'completed' | 'in-progress' | 'pending';
+
+export interface TableColumn {
+  key: string;
+  label: string;
+  width?: string;
+  align?: 'left' | 'center' | 'right';
+}
+
+export interface TableData {
+  [key: string]: any;
+  id: string;
+}
+
+export interface TableProps {
+  variant?: TableVariant;
+  columns: TableColumn[];
+  data: TableData[];
+  className?: string;
+  onRowClick?: (row: TableData) => void;
+  onActionClick?: (action: string, row: TableData) => void;
+}
