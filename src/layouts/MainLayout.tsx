@@ -131,7 +131,7 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-50 w-full max-w-full overflow-x-hidden">
       {/* Sidebar */}
       <Sidebar categories={sidebarCategories} activeItem={getActiveItem()} onItemClick={handleItemClick} />
 
@@ -154,7 +154,7 @@ const MainLayout = () => {
         </header>
 
         {/* Page Content */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 min-h-0 h-full">
           <Outlet />
         </div>
       </div>

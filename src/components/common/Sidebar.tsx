@@ -96,7 +96,9 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, activeItem, onItemClick, 
   };
 
   return (
-    <div className={`w-64 bg-white border-r border-gray-200 h-full flex flex-col ${className}`}>
+    <div
+      className={`w-64 min-w-64 max-w-64 bg-white border-r border-gray-200 h-full flex flex-col flex-shrink-0 ${className}`}
+    >
       {/* Header */}
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center space-x-3">
