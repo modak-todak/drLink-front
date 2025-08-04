@@ -99,3 +99,27 @@ export interface TableProps {
   onRowClick?: (row: TableData) => void;
   onActionClick?: (action: string, row: TableData) => void;
 }
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  children: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  showCloseButton?: boolean;
+  closeOnOverlayClick?: boolean;
+  className?: string;
+}
+
+export interface ModalAction {
+  label: string;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+}
+
+export interface ModalWithActionsProps extends Omit<ModalProps, 'children'> {
+  description?: string;
+  actions: ModalAction[];
+  children?: React.ReactNode;
+}

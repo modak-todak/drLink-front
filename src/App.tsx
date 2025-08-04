@@ -17,6 +17,7 @@ import AddDoctor from './pages/recordsManagement/AddDoctor';
 import FormInputsExample from './components/examples/FormInputsExample';
 import ButtonExample from './components/examples/ButtonExample';
 import TableExample from './components/examples/TableExample';
+import ModalExample from './components/examples/ModalExample';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/components/form-inputs" element={<FormInputsExample />} />
           <Route path="/components/button" element={<ButtonExample />} />
           <Route path="/components/table" element={<TableExample />} />
+          <Route path="/components/modal" element={<ModalExample />} />
         </Route>
       </Routes>
     </Router>

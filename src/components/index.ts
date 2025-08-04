@@ -18,6 +18,9 @@ export type {
   TableColumn,
   TableData,
   TableProps,
+  ModalProps,
+  ModalAction,
+  ModalWithActionsProps,
 } from './types';
 
 // Components
@@ -32,3 +35,5 @@ export { default as Button } from './Button';
 export { default as IconButton } from './IconButton';
 export { default as Table } from './Table';
 export { default as Status } from './Status';
+export { default as Modal } from './Modal';
+export { default as ModalWithActions } from './ModalWithActions';
