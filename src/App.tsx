@@ -14,6 +14,13 @@ import AccessLogs from './pages/recordsManagement/AccessLogs';
 import HospitalDirectory from './pages/main/HospitalDirectory';
 import NotFound from './pages/NotFound';
 import AddDoctor from './pages/recordsManagement/AddDoctor';
+import FormInputsExample from './components/examples/FormInputsExample';
+import ButtonExample from './components/examples/ButtonExample';
+import TableExample from './components/examples/TableExample';
+import ModalExample from './components/examples/ModalExample';
+import FeedbackExample from './components/examples/FeedbackExample';
+import CardExample from './components/examples/CardExample';
+import NavigationExample from './components/examples/NavigationExample';
 
 function App() {
   return (
@@ -35,6 +42,13 @@ function App() {
           <Route path="/records/access-logs" element={<AccessLogs />} />
           <Route path="/main/hospital-directory" element={<HospitalDirectory />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/components/form-inputs" element={<FormInputsExample />} />
+          <Route path="/components/button" element={<ButtonExample />} />
+          <Route path="/components/table" element={<TableExample />} />
+          <Route path="/components/modal" element={<ModalExample />} />
+          <Route path="/components/feedback" element={<FeedbackExample />} />
+          <Route path="/components/card" element={<CardExample />} />
+          <Route path="/components/navigation" element={<NavigationExample />} />
         </Route>
       </Routes>
     </Router>
