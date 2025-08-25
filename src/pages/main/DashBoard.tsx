@@ -10,7 +10,7 @@ import {
   FiBell,
   FiFileText,
 } from 'react-icons/fi';
-import { StatCard, ActivityCard, ContentCard, Tabs, Button, Status, type TabItem } from '../../components/common';
+import { StatCard, ActivityCard, ContentCard, Tabs, type TabItem } from '../../components/common';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
     {
       id: '5',
       icon: <PenIcon />,
-      title: '의견서 작성 완료',
+      title: '소견서 작성 완료',
       subtitle: '환자 코드: P2024-004',
       metadata: '정형외과 • 정정형 전문의',
       status: { label: '일반', variant: 'info' as const },
@@ -151,7 +151,7 @@ const Dashboard: React.FC = () => {
             <ContentCard
               icon={<DocumentIcon />}
               title="협진 기록 조회"
-              description="환자별 과거 협진 이력 및 의견서 확인"
+              description="환자별 과거 협진 이력 및 소견서 확인"
               variant="info"
               onClick={() => navigate('/consultation/consultation-records')}
             />
