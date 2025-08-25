@@ -1,4 +1,4 @@
-export interface ConsultationRequest {
+export interface ConsultationRequestData {
   id: string;
   patientId: string;
   department: string;
@@ -9,9 +9,35 @@ export interface ConsultationRequest {
   symptoms: string;
   attachments: File[];
   patientConsent: boolean;
-  status: 'pending' | 'approved' | 'rejected' | 'completed';
+  status: 'pending' | 'accepted' | 'rejected' | 'completed';
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface ConsultationRecord {
+  id: string;
+  type: 'normal' | 'urgent' | 'emergency';
+  patientCode: string;
+  patientInfo: {
+    age: number;
+    department: string;
+  };
+  requestingDoctor: {
+    name: string;
+    institution: string;
+  };
+  requestTime: string;
+  estimatedDuration: string;
+  requestDate: string;
+  attachedFiles: number;
+  status: 'pending' | 'accepted' | 'completed';
+  specialistOpinion?: {
+    downloadStatus: string;
+    expirationTime: string;
+    isDownloaded: boolean;
+  };
+  mainSymptoms: string;
+  createdAt: Date;
 }
 
 export interface HospitalSchedule {
@@ -46,7 +72,7 @@ export interface Department {
 
 export interface UrgencyLevel {
   id: string;
-  name: string;
+  label: string;
   description: string;
   color: string;
 }

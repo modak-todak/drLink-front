@@ -9,7 +9,7 @@ import {
   Card,
   type DropdownOption,
 } from '../common';
-import type { ConsultationRequest, HospitalSchedule, Specialist, TimeSlot } from './types';
+import type { ConsultationRequestData, HospitalSchedule, Specialist, TimeSlot } from './types';
 import {
   mockDepartments,
   mockUrgencyLevels,
@@ -20,7 +20,7 @@ import {
 
 interface ConsultationRequestFormProps {
   preSelectedHospitalId?: string;
-  onSubmit: (data: Partial<ConsultationRequest>) => void;
+  onSubmit: (data: Partial<ConsultationRequestData>) => void;
   onCancel: () => void;
 }
 
@@ -109,7 +109,7 @@ const ConsultationRequestForm: React.FC<ConsultationRequestFormProps> = ({
       return;
     }
 
-    onSubmit(formData as Partial<ConsultationRequest>);
+    onSubmit(formData as Partial<ConsultationRequestData>);
   };
 
   const handleFileUpload = (files: File[]) => {

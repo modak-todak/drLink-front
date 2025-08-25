@@ -1,2 +1,12 @@
 export { default as ConsultationRequestForm } from './ConsultationRequestForm';
-export type { ConsultationRequest, HospitalSchedule, TimeSlot, Specialist, Department, UrgencyLevel } from './types';
+export { default as ConsultationStatusTabs } from './ConsultationStatusTabs';
+export { default as ConsultationRecordCard } from './ConsultationRecordCard';
+export type {
+  ConsultationRequestData,
+  ConsultationRecord,
+  HospitalSchedule,
+  TimeSlot,
+  Specialist,
+  Department,
+  UrgencyLevel,
+} from './types';

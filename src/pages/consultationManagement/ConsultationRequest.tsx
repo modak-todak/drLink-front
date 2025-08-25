@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ConsultationRequestForm } from '../../components/consultation';
-import type { ConsultationRequest } from '../../components/consultation';
+import type { ConsultationRequestData } from '../../components/consultation';
 
 const ConsultationRequest: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -10,7 +10,7 @@ const ConsultationRequest: React.FC = () => {
   // URL 파라미터에서 병원 ID 가져오기
   const preSelectedHospitalId = searchParams.get('hospitalId');
 
-  const handleSubmit = async (data: Partial<ConsultationRequest>) => {
+  const handleSubmit = async (data: Partial<ConsultationRequestData>) => {
     try {
       // TODO: API 호출로 협진 요청 전송
       console.log('협진 요청 데이터:', data);
