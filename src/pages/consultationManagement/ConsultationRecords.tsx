@@ -1,10 +1,12 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ConsultationStatusTabs, ConsultationRecordCard } from '../../components/consultation';
 import { mockConsultationRecords } from '../../data/mockData';
 import { useAccount } from '../../contexts/AccountContext';
 
 const ConsultationRecords: React.FC = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const navigate = useNavigate();
 
   const { isHospitalAccount, isHealthCenterAccount } = useAccount();
 
@@ -44,7 +46,8 @@ const ConsultationRecords: React.FC = () => {
 
   const handleStartConsultation = (recordId: string) => {
     console.log('협진 시작:', recordId);
-    // TODO: 실시간 협진 페이지로 이동
+    // 실시간 협진 페이지로 이동
+    navigate(`/consultation/live-consultation?recordId=${recordId}`);
   };
 
   const handleDownloadOpinion = (recordId: string) => {

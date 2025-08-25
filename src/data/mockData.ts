@@ -475,30 +475,7 @@ export const mockSidebarCategories = [
       },
     ],
   },
-  {
-    id: 'records',
-    title: '기록 관리',
-    items: [
-      {
-        id: 'collaboration-history',
-        label: '협진 이력',
-        icon: FiClock,
-        path: '/management/consultation-history',
-        title: '협진 이력',
-        subtitle: '전체 협진 이력을 조회하고 분석하세요',
-        visible: true, // 사이드바에 표시
-      },
-      {
-        id: 'hospital-info',
-        label: '병원 정보 관리',
-        icon: FiHome,
-        path: '/records/hospital',
-        title: '병원 정보 관리',
-        subtitle: '병원 정보를 등록하고 관리하세요',
-        visible: true, // 사이드바에 표시
-      },
-    ],
-  },
+
   {
     id: 'settings',
     title: '설정',
