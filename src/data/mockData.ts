@@ -453,7 +453,7 @@ export const mockSidebarCategories = [
         path: '/consultation/live-consultation',
         title: '실시간 협진',
         subtitle: '실시간으로 협진을 진행하세요',
-        visible: true, // 사이드바에 표시
+        visible: false, // 사이드바에 표시
       },
       {
         id: 'write-opinion',
@@ -462,16 +462,7 @@ export const mockSidebarCategories = [
         path: '/consultation/medical-opinion',
         title: '소견서 작성',
         subtitle: '협진 소견서를 작성하고 관리하세요',
-        visible: true, // 사이드바에 표시
-      },
-      {
-        id: 'collaboration-history',
-        label: '협진 이력',
-        icon: FiClock,
-        path: '/management/consultation-history',
-        title: '협진 이력',
-        subtitle: '전체 협진 이력을 조회하고 분석하세요',
-        visible: true, // 사이드바에 표시
+        visible: false, // 사이드바에 표시
       },
     ],
   },
