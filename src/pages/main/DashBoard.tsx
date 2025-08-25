@@ -92,21 +92,6 @@ const Dashboard: React.FC = () => {
   return (
     <div className="h-full overflow-y-auto p-6 w-full max-w-full overflow-x-hidden">
       <div className="max-w-7xl mx-auto space-y-6 w-full">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">대시보드</h1>
-            <p className="text-sm text-gray-600">협진 현황 및 최근 활동을 확인하세요</p>
-          </div>
-          <Button
-            type="primary"
-            color="blue"
-            icon={<SearchIcon />}
-            onClick={() => navigate('/consultation/consultation-request')}
-          >
-            새 협진 요청
-          </Button>
-        </div>
         {/* 협진 현황 요약 */}
         <section>
           <h2 className="text-lg font-semibold text-gray-900 mb-4">협진 현황 요약</h2>

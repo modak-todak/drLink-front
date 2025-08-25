@@ -70,4 +70,5 @@ export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Tabs } from './Tabs';
 export { default as Pagination } from './Pagination';
 export { default as Dropdown } from './Dropdown';
+export { default as LabeledDropdown } from './LabeledDropdown';
 export { default as Sidebar } from './Sidebar';

@@ -262,11 +262,17 @@ export interface DropdownProps {
 }
 
 // Sidebar Types
+import type { IconType } from 'react-icons';
+
 export interface SidebarItem {
   id: string;
   label: string;
-  icon?: React.ReactNode;
+  icon?: IconType | React.ReactNode; // IconType 또는 렌더링된 ReactNode
   href?: string;
+  path?: string; // 경로 정보
+  title?: string; // 헤더 제목
+  subtitle?: string; // 헤더 부제목
+  visible?: boolean; // 사이드바에 표시할지 여부 (기본값: true)
   onClick?: () => void;
   disabled?: boolean;
   badge?: {

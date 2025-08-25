@@ -41,7 +41,11 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, activeItem, onItemClick, 
         `}
       >
         <div className="flex items-center space-x-3">
-          {item.icon && <div className={`w-5 h-5 ${isActive ? 'text-blue-600' : 'text-gray-500'}`}>{item.icon}</div>}
+          {item.icon && (
+            <div className={`w-5 h-5 ${isActive ? 'text-blue-600' : 'text-gray-500'}`}>
+              {React.isValidElement(item.icon) ? item.icon : React.createElement(item.icon as React.ComponentType)}
+            </div>
+          )}
           <span className="text-sm font-medium">{item.label}</span>
         </div>
 

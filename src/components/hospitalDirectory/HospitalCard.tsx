@@ -13,6 +13,7 @@ export interface HospitalCardProps {
   rating: number;
   specialties: string[];
   collaborationMethods: string[];
+  department?: string;
   onRequestCollaboration?: () => void;
   onViewDetails?: () => void;
   className?: string;
@@ -105,7 +106,13 @@ const HospitalCard: React.FC<HospitalCardProps> = ({
 
       {/* Action Buttons */}
       <div className="flex items-center space-x-2">
-        <Button type="primary" color="blue" onClick={onRequestCollaboration} className="flex-1">
+        <Button
+          type="primary"
+          color="blue"
+          onClick={onRequestCollaboration || (() => {})}
+          className="flex-1"
+          disabled={!onRequestCollaboration}
+        >
           협진 요청하기
         </Button>
         <Button type="secondary" color="blue" icon={<FiInfo />} onClick={onViewDetails} className="px-3">
