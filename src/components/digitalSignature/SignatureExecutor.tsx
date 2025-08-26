@@ -60,7 +60,7 @@ const SignatureExecutor: React.FC<SignatureExecutorProps> = ({
         <div className="bg-gray-50 rounded-lg p-4">
           <h4 className="font-medium text-gray-900 mb-3">서명 대상 문서 요약</h4>
           <div className="space-y-2 text-sm text-gray-700">
-            <div>환자코드: {documentInfo.patientCode}</div>
+            <div>진료코드: {documentInfo.patientCode}</div>
             <div>협진ID: {documentInfo.consultationId}</div>
             <div>작성일시: {documentInfo.createdAt}</div>
             <div>진단명: {documentInfo.diagnosis}</div>

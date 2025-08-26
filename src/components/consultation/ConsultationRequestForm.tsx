@@ -131,10 +131,10 @@ const ConsultationRequestForm: React.FC<ConsultationRequestFormProps> = ({
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* 환자 정보 섹션 */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">환자 정보</h3>
+          <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">진료 정보</h3>
 
           <TextInput
-            label="환자 식별코드 *"
+            label="진료 식별코드 *"
             placeholder="예: P2024-001"
             value={formData.patientId}
             onChange={(value) => handleInputChange('patientId', value)}
