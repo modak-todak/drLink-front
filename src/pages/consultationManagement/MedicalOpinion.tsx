@@ -98,7 +98,8 @@ const MedicalOpinion: React.FC = () => {
   };
   const handleComplete = () => {
     console.log('소견서 완성:', formData);
-    alert('소견서가 완성되었습니다. PDF를 생성합니다.');
+    // DigitalSignature 페이지로 이동
+    navigate('/records/digital-signature');
   };
 
   const handleDownload = () => {

@@ -14,6 +14,7 @@ import AccessLogs from './pages/recordsManagement/AccessLogs';
 import HospitalDirectory from './pages/main/HospitalDirectory';
 import NotFound from './pages/NotFound';
 import AddDoctor from './pages/recordsManagement/AddDoctor';
+import DigitalSignature from './pages/recordsManagement/DigitalSignature';
 import FormInputsExample from './components/examples/FormInputsExample';
 import ButtonExample from './components/examples/ButtonExample';
 import TableExample from './components/examples/TableExample';
@@ -42,6 +43,7 @@ function App() {
             <Route path="/management/consultation-history" element={<ConsultationHistory />} />
             <Route path="/records/hospital" element={<HospitalManagement />} />
             <Route path="/records/add-doctor" element={<AddDoctor />} />
+            <Route path="/records/digital-signature" element={<DigitalSignature />} />
             <Route path="/records/access-logs" element={<AccessLogs />} />
             <Route path="/main/hospital-directory" element={<HospitalDirectory />} />
             <Route path="*" element={<NotFound />} />
