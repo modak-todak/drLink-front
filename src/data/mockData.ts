@@ -464,6 +464,15 @@ export const mockSidebarCategories = [
         subtitle: '협진 소견서를 작성하고 관리하세요',
         visible: false, // 사이드바에 표시
       },
+      {
+        id: 'write-opinion',
+        label: '전자 서명 작성',
+        icon: FiEdit,
+        path: '/records/digital-signature',
+        title: '전자 서명 작성',
+        subtitle: '협진 소견서에 전자서명을 작성하세요',
+        visible: false, // 사이드바에 표시
+      },
     ],
   },
 
@@ -496,7 +505,7 @@ export const mockSidebarCategories = [
         path: '/records/access-logs',
         title: '접근 로그',
         subtitle: '시스템 접근 기록을 확인하세요',
-        visible: true, // 사이드바에 표시
+        visible: false, // 사이드바에 표시
       },
     ],
   },
