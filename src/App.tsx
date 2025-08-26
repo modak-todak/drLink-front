@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import { AccountProvider } from './contexts/AccountContext';
-import Home from './pages/Home';
+
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/main/DashBoard';
@@ -31,8 +31,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path="/home" element={<Home />} />
+            <Route index element={<Dashboard />} />
+            <Route path="/home" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
