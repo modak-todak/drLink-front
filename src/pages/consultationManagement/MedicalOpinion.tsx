@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowLeft, FiPlus, FiSearch, FiDownload } from 'react-icons/fi';
 import { Button, TextInput, Textarea, Select, Card } from '../../components/common';
+// IoIosDownload import 제거 (FiDownload 사용)
 
 interface STTRecord {
   id: string;
@@ -100,6 +101,10 @@ const MedicalOpinion: React.FC = () => {
     alert('소견서가 완성되었습니다. PDF를 생성합니다.');
   };
 
+  const handleDownload = () => {
+    console.log('다운로드');
+  };
+
   return (
     <div className="h-full flex bg-gray-50">
       {/* 중앙 콘텐츠 영역 */}
@@ -108,11 +113,11 @@ const MedicalOpinion: React.FC = () => {
           {/* 환자 및 협진 정보 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">환자 코드</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">진료 식별 코드</label>
               <TextInput
                 value={formData.patientCode}
                 onChange={(value) => handleInputChange('patientCode', value)}
-                placeholder="환자 코드를 입력하세요"
+                placeholder="진료 식별 코드를 입력하세요"
               />
             </div>
             <div>
@@ -125,9 +130,7 @@ const MedicalOpinion: React.FC = () => {
             </div>
           </div>
 
-          {/* 의견서 작성 폼 */}
           <div className="space-y-6">
-            {/* 진단 소견 */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 진단 소견 <span className="text-red-500">*</span>
@@ -232,10 +235,10 @@ const MedicalOpinion: React.FC = () => {
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-900">협진 음성 기록 (STT)</h3>
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-green-600">변환 완료</span>
-            </div>
+            <Button type="secondary" color="blue" onClick={handleDownload}>
+              <FiDownload className="w-4 h-4 text-blue-600 mr-2" />
+              <span className="text-sm text-blue-600">다운로드</span>
+            </Button>
           </div>
         </div>
 

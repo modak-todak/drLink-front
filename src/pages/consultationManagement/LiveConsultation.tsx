@@ -35,13 +35,23 @@ const LiveConsultation: React.FC = () => {
   // 협진 종료 처리
   const handleEndConsultation = () => {
     if (isHospitalAccount) {
-      const confirmed = window.confirm('협진을 종료하시겠습니까? 종료 후 소견서 작성 페이지로 이동합니다.');
+      const confirmed = window.confirm(
+        '협진을 종료하시겠습니까?\n\n• 협진 종료 후 소견서 작성 페이지로 이동합니다\n• 녹화된 영상은 30일간 보관되며, 협진 기록에서 다운로드 가능합니다\n• 미다운로드 시 자동 삭제됩니다'
+      );
       if (confirmed) {
+        // 협진 종료 처리 로직
+        console.log('협진 종료 처리 중...');
         navigate('/consultation/medical-opinion');
       }
     } else if (isHealthCenterAccount) {
-      alert('소견서 작성이 완료되면 협진기록 페이지에서 다운받을 수 있습니다.');
-      navigate('/consultation/consultation-records');
+      const confirmed = window.confirm(
+        '협진을 종료하시겠습니까?\n\n• 협진 기록 페이지로 이동합니다\n• 전문의가 소견서 작성 완료 후 녹화영상 및 소견서를 다운로드할 수 있습니다\n• 녹화영상은 30일간 보관됩니다'
+      );
+      if (confirmed) {
+        // 협진 종료 처리 로직
+        console.log('협진 종료 처리 중...');
+        navigate('/consultation/consultation-records');
+      }
     }
   };
 
@@ -51,7 +61,7 @@ const LiveConsultation: React.FC = () => {
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            <div className="text-gray-600">환자 코드: P2024-002 | 소아청소년과</div>
+            <div className="text-gray-600">진료 식별 코드: P2024-002 | 소아청소년과</div>
           </div>
           <div className="flex items-center space-x-4">
             {/* LIVE 상태 */}
