@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Status } from '../common';
+import { Button } from '../common';
 
 export interface MedicalStaff {
   id: string;
@@ -19,14 +19,6 @@ interface MedicalStaffCardProps {
 }
 
 const MedicalStaffCard: React.FC<MedicalStaffCardProps> = ({ staff, onEdit, onDelete }) => {
-  const getStatusVariant = (status: string) => {
-    return status === 'active' ? 'completed' : 'pending';
-  };
-
-  const getStatusText = (status: string) => {
-    return status === 'active' ? '활성' : '비활성';
-  };
-
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
       {/* 상단 상태 및 기본 정보 */}

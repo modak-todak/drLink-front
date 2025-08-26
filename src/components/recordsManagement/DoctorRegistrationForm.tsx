@@ -120,10 +120,6 @@ const DoctorRegistrationForm: React.FC<DoctorRegistrationFormProps> = ({ onSubmi
     onSubmit(formData, schedule);
   };
 
-  // 선택된 요일 수와 총 시간대 수 계산
-  const selectedDaysCount = schedule.filter((day) => day.isSelected).length;
-  const totalTimeSlotsCount = schedule.reduce((total, day) => total + day.timeSlots.length, 0);
-
   return (
     <div className="space-y-6">
       {/* 기본 정보 */}

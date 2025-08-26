@@ -4,7 +4,7 @@ import { FiPlus } from 'react-icons/fi';
 import { Button, Card } from '../../components/common';
 import { HospitalManagementTabs } from '../../components/common';
 import MedicalStaffCard from '../../components/hospitalManagement/MedicalStaffCard';
-import { mockMedicalStaff, addMedicalStaff, removeMedicalStaff, type MedicalStaffData } from '../../data/mockData';
+import { mockMedicalStaff, removeMedicalStaff } from '../../data/mockData';
 
 const HospitalManagement: React.FC = () => {
   const navigate = useNavigate();

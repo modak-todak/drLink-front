@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FiMic, FiMicOff, FiVideo, FiVideoOff, FiMonitor, FiSquare, FiX } from 'react-icons/fi';
 import { useAccount } from '../../contexts/AccountContext';
 
 const LiveConsultation: React.FC = () => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
   const { isHospitalAccount, isHealthCenterAccount } = useAccount();
 
-  const [isRecording, setIsRecording] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoOn, setIsVideoOn] = useState(true);
   const [isScreenSharing, setIsScreenSharing] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
-
-  const recordId = searchParams.get('recordId');
 
   // 타이머 효과
   useEffect(() => {

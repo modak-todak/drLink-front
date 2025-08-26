@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiPlus, FiSearch, FiDownload } from 'react-icons/fi';
+import { FiSearch, FiDownload } from 'react-icons/fi';
 import { Button, TextInput, Textarea, Select, Card } from '../../components/common';
-// IoIosDownload import 제거 (FiDownload 사용)
 
 interface STTRecord {
   id: string;
