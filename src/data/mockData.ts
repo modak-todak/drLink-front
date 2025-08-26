@@ -481,6 +481,15 @@ export const mockSidebarCategories = [
         visible: true, // 사이드바에 표시
       },
       {
+        id: 'hospital-info',
+        label: '의사 등록',
+        icon: FiHome,
+        path: '/records/add-doctor',
+        title: '병원 정보 관리',
+        subtitle: '병원 정보를 등록하고 관리하세요',
+        visible: false, // 사이드바에 표시
+      },
+      {
         id: 'access-log',
         label: '접근 로그',
         icon: FiShield,
@@ -492,6 +501,134 @@ export const mockSidebarCategories = [
     ],
   },
 ];
+
+// =============================================================================
+// 의료진 관련 목데이터
+// =============================================================================
+
+/**
+ * 의료진 등록 폼의 기본값 - AddDoctor 페이지에서 사용
+ * 폼 초기값으로 사용되는 기본 데이터
+ */
+export const mockDoctorFormDefaults = {
+  doctorName: '김의사',
+  licenseNumber: 'KMA-2024-001234',
+  hospital: '서울대학교병원',
+  contact: '010-1234-5678',
+  email: 'doctor@hospital.com',
+};
+
+/**
+ * 전문과 목록 - 의료진 등록 폼에서 사용
+ * 의료진이 선택할 수 있는 전문과들
+ */
+export const mockSpecialtyOptions = [
+  { value: 'internal', label: '내과' },
+  { value: 'surgery', label: '외과' },
+  { value: 'pediatrics', label: '소아과' },
+  { value: 'obstetrics', label: '산부인과' },
+  { value: 'orthopedics', label: '정형외과' },
+  { value: 'neurology', label: '신경과' },
+  { value: 'psychiatry', label: '정신건강의학과' },
+  { value: 'dermatology', label: '피부과' },
+  { value: 'ophthalmology', label: '안과' },
+  { value: 'otolaryngology', label: '이비인후과' },
+  { value: 'emergency', label: '응급의학과' },
+];
+
+/**
+ * 진료과 목록 - 의료진 등록 폼에서 사용
+ * 의료진이 소속될 수 있는 진료과들
+ */
+export const mockDepartmentOptions = [
+  { value: 'internal', label: '내과' },
+  { value: 'surgery', label: '외과' },
+  { value: 'pediatrics', label: '소아과' },
+  { value: 'obstetrics', label: '산부인과' },
+  { value: 'orthopedics', label: '정형외과' },
+  { value: 'neurology', label: '신경과' },
+  { value: 'psychiatry', label: '정신건강의학과' },
+  { value: 'dermatology', label: '피부과' },
+  { value: 'ophthalmology', label: '안과' },
+  { value: 'otolaryngology', label: '이비인후과' },
+  { value: 'emergency', label: '응급의학과' },
+];
+
+/**
+ * 등록된 의료진 목록 - HospitalManagement 페이지에서 사용
+ * 병원에 소속된 의료진들의 정보와 협진 가능 시간, 방법 등을 포함
+ */
+// 의료진 데이터 타입 정의
+export interface MedicalStaffData {
+  id: string;
+  name: string;
+  specialty: string;
+  licenseNumber: string;
+  department: string;
+  status: 'active' | 'inactive';
+  availableTimes: string[];
+  collaborationMethods: string[];
+}
+
+// 의료진 목록 (가변 배열로 변경)
+export let mockMedicalStaff: MedicalStaffData[] = [
+  {
+    id: '1',
+    name: '김내과',
+    specialty: '내과',
+    licenseNumber: 'KMA-2018-001234',
+    department: '내과',
+    status: 'active',
+    availableTimes: ['09:00-12:00', '14:00-17:00'],
+    collaborationMethods: ['화상통화', '채팅'],
+  },
+  {
+    id: '2',
+    name: '박소아',
+    specialty: '소아청소년과',
+    licenseNumber: 'KMA-2020-005678',
+    department: '소아청소년과',
+    status: 'active',
+    availableTimes: ['10:00-12:00', '15:00-18:00'],
+    collaborationMethods: ['화상통화', '채팅', '전화'],
+  },
+  {
+    id: '3',
+    name: '최정형',
+    specialty: '정형외과',
+    licenseNumber: 'KMA-2019-009012',
+    department: '정형외과',
+    status: 'inactive',
+    availableTimes: ['08:00-11:00', '13:00-16:00'],
+    collaborationMethods: ['화상통화'],
+  },
+];
+
+/**
+ * 새로운 의료진을 목록에 추가하는 함수
+ * @param newStaff 추가할 의료진 데이터
+ */
+export const addMedicalStaff = (newStaff: Omit<MedicalStaffData, 'id'>) => {
+  const staffWithId: MedicalStaffData = {
+    ...newStaff,
+    id: Date.now().toString(), // 고유 ID 생성
+  };
+  mockMedicalStaff.push(staffWithId);
+  return staffWithId;
+};
+
+/**
+ * 의료진을 목록에서 삭제하는 함수
+ * @param staffId 삭제할 의료진의 ID
+ */
+export const removeMedicalStaff = (staffId: string) => {
+  const index = mockMedicalStaff.findIndex((staff) => staff.id === staffId);
+  if (index > -1) {
+    mockMedicalStaff.splice(index, 1);
+    return true;
+  }
+  return false;
+};
 
 // =============================================================================
 // 유틸리티 함수들
