@@ -13,7 +13,6 @@ interface TimeSlot {
 interface DaySchedule {
   day: string;
   isSelected: boolean;
-  isExpanded: boolean;
   timeSlots: TimeSlot[];
 }
 
