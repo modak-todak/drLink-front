@@ -8,7 +8,7 @@ import {
   CONSULTATION_ROUTER_CONFIGS,
   RECORDS_ROUTER_CONFIGS,
   ROUTER_CONFIGS,
-} from "./router";
+} from "./routers";
 
 function App() {
   return (
