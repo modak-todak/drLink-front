@@ -72,10 +72,7 @@ export const mockConsultationRecords: ConsultationRecord[] = [
 export const handlers = [
   http.get(`/records`,  () => {
     const response = {
-      data: {
-        records:mockConsultationRecords
-      },
-
+        mockConsultationRecords
     };
     return HttpResponse.json({...response});
   }),
