@@ -51,7 +51,11 @@ const ConsultationRecords: React.FC = () => {
     console.log('협진 거절:', recordId);
     // TODO: 협진 거절 API 호출
     alert('협진을 거절하였습니다.')
-
+    setRecords((prev) =>
+      prev.filter((r) =>
+        r.id !== recordId 
+      )
+    )
   };
 
   const handleStartConsultation = (recordId: string) => {
