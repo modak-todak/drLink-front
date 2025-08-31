@@ -4,6 +4,7 @@ import { FiDownload } from 'react-icons/fi';
 import { Button, TextInput, Textarea, Card } from '../../components/common';
 import STTSidebar from '../../components/medicalOpinion/STTSidebar';
 import DoctorInfo from '../../components/medicalOpinion/DoctorInfo';
+import { useDigitalSignature } from '../../hooks/useDigitalSignature';
 
 const MedicalOpinion: React.FC = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const MedicalOpinion: React.FC = () => {
   });
 
   const [searchQuery, setSearchQuery] = useState('');
+  const { processSignature } = useDigitalSignature();
 
   // STT 내용을 폼에 추가하는 함수
   const addToForm = (content: string, category: string) => {
@@ -53,11 +55,16 @@ const MedicalOpinion: React.FC = () => {
   // 액션 핸들러들
   const handleCancel = () => navigate('/consultation/consultation-records');
 
-  const handleComplete = () => {
+  const handleComplete = async () => {
     console.log('소견서 완성:', formData, doctorInfo);
+    const result = await processSignature(formData, doctorInfo);
 
-    // DigitalSignature 페이지로 이동
-    // navigate('/records/digital-signature');
+    if (result.success) {
+      alert('서명 요청이 성공적으로 전송되었습니다.');
+      navigate('/records/digital-signature');
+    } else {
+      alert(`서명 요청 실패: ${result.error}`);
+    }
   };
 
   const handleDownload = () => {
