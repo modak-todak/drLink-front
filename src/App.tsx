@@ -24,6 +24,8 @@ import CardExample from './components/examples/CardExample';
 import NavigationExample from './components/examples/NavigationExample';
 import SidebarExample from './components/examples/SidebarExample';
 import ConsultationRequest from './pages/consultationManagement/ConsultationRequest';
+import ConsultationRoom from './pages/ConsultationRoom';
+import ReactCompo from './pages/ReactCompo';
 
 function App() {
   return (
@@ -56,6 +58,7 @@ function App() {
             <Route path="/components/navigation" element={<NavigationExample />} />
             <Route path="/components/sidebar" element={<SidebarExample />} />
           </Route>
+            <Route path="/123" element={<ConsultationRoom />} />
         </Routes>
       </Router>
     </AccountProvider>
