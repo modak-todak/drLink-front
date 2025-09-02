@@ -1,163 +1,106 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  ProgressBar,
-  DocumentInfoCard,
-  SignatureMethodSelector,
-  CertificateSelector,
-  SignatureExecutor,
-  SignatureComplete,
-  type DocumentInfo,
-  type Certificate,
-  type Step,
-} from '../../components/digitalSignature';
+import { FiCheckCircle, FiMail, FiDownload, FiArrowLeft } from 'react-icons/fi';
+import { Button } from '../../components/common';
 
 const DigitalSignature: React.FC = () => {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState(1);
-  const [selectedMethod, setSelectedMethod] = useState<'saved' | 'mobile' | 'usb' | null>(null);
-  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
-  const [password, setPassword] = useState('');
-
-  // 문서 정보 (실제로는 props나 API에서 받아올 데이터)
-  const documentInfo: DocumentInfo = {
-    patientCode: 'P2024-008',
-    patientName: '김**',
-    author: '김소아 전문의',
-    hospital: '서울대학교병원',
-    department: '소아청소년과',
-    diagnosis: '소아 폐렴 (Pediatric Pneumonia)',
-    createdAt: '2024-01-15 15:30:00',
-    consultationId: 'C2024-008',
-  };
-
-  // 인증서 목록
-  const certificates: Certificate[] = [
-    {
-      id: '1',
-      name: '김소아(의료진용)',
-      issuer: '한국정보인증',
-      validFrom: '2023-01-15',
-      validTo: '2025-01-14',
-      type: 'medical',
-      isRecommended: true,
-    },
-    {
-      id: '2',
-      name: '김소아(범용)',
-      issuer: '코스콤',
-      validFrom: '2023-03-10',
-      validTo: '2025-03-09',
-      type: 'general',
-    },
-  ];
-
-  const steps: Step[] = [
-    { id: 1, title: '서명 방식 선택', description: 'Select Signature Method' },
-    { id: 2, title: '인증서 선택', description: 'Select Certificate' },
-    { id: 3, title: '전자서명', description: 'Digital Signature' },
-    { id: 4, title: '완료', description: 'Complete' },
-  ];
-
-  const handleNext = () => {
-    if (currentStep < 4) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
-
-  const handleMethodSelect = (method: 'saved' | 'mobile' | 'usb') => {
-    setSelectedMethod(method);
-  };
-
-  const handleCertificateSelect = (certificate: Certificate) => {
-    setSelectedCertificate(certificate);
-  };
-
-  const handleSignatureExecute = () => {
-    // 실제 전자서명 로직 구현
-    console.log('전자서명 실행:', { selectedCertificate, password });
-    handleNext();
-  };
-
-  const handleDownload = () => {
-    // 서명된 소견서 다운로드 로직
-    console.log('서명된 소견서 다운로드');
-  };
 
   const handleReturnToList = () => {
     navigate('/consultation/consultation-records');
   };
 
-  const renderCurrentStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <SignatureMethodSelector
-            selectedMethod={selectedMethod}
-            onMethodSelect={handleMethodSelect}
-            onNext={handleNext}
-          />
-        );
-      case 2:
-        return (
-          <CertificateSelector
-            certificates={certificates}
-            selectedCertificate={selectedCertificate}
-            onCertificateSelect={handleCertificateSelect}
-            onPrev={handlePrev}
-            onNext={handleNext}
-          />
-        );
-      case 3:
-        return (
-          <SignatureExecutor
-            selectedCertificate={selectedCertificate}
-            password={password}
-            onPasswordChange={setPassword}
-            onPrev={handlePrev}
-            onExecute={handleSignatureExecute}
-            documentInfo={documentInfo}
-          />
-        );
-      case 4:
-        return (
-          <SignatureComplete
-            documentInfo={documentInfo}
-            selectedCertificate={selectedCertificate}
-            onDownload={handleDownload}
-            onReturnToList={handleReturnToList}
-          />
-        );
-      default:
-        return (
-          <SignatureMethodSelector
-            selectedMethod={selectedMethod}
-            onMethodSelect={handleMethodSelect}
-            onNext={handleNext}
-          />
-        );
-    }
+  const handleGoToDashboard = () => {
+    navigate('/dashboard');
   };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <ProgressBar steps={steps} currentStep={currentStep} />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* 왼쪽 패널 - 문서 정보 */}
-          <div className="lg:col-span-1">
-            <DocumentInfoCard documentInfo={documentInfo} />
+      <div className="mx-auto max-w-4xl px-4">
+        {/* 성공 메시지 카드 */}
+        <div className="mb-8 rounded-lg border bg-white p-8 shadow-sm">
+          <div className="text-center">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+              <FiCheckCircle className="h-8 w-8 text-green-600" />
+            </div>
+            <h1 className="mb-4 text-2xl font-bold text-gray-900">소견서 생성 완료!</h1>
+            <p className="mb-6 text-lg text-gray-600">
+              전자 서명 요청이 성공적으로 전송되었습니다.
+            </p>
           </div>
+        </div>
 
-          {/* 오른쪽 패널 - 현재 단계 */}
-          <div className="lg:col-span-2">{renderCurrentStep()}</div>
+        {/* 안내 정보 카드 */}
+        <div className="mb-8 rounded-lg border bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-xl font-semibold text-gray-900">다음 단계 안내</h2>
+
+          <div className="space-y-6">
+            {/* 1단계: 메일 확인 */}
+            <div className="flex items-start space-x-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
+                <span className="text-sm font-semibold text-blue-600">1</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="mb-2 font-medium text-gray-900">메일 확인</h3>
+                <p className="text-gray-600">
+                  전문의와 지역의료진에게 전자 서명 요청 메일이 발송되었습니다. 각자의 이메일을
+                  확인하여 서명을 진행해주세요.
+                </p>
+              </div>
+              <FiMail className="h-6 w-6 text-blue-500" />
+            </div>
+
+            {/* 2단계: 서명 완료 */}
+            <div className="flex items-start space-x-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-100">
+                <span className="text-sm font-semibold text-yellow-600">2</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="mb-2 font-medium text-gray-900">서명 완료</h3>
+                <p className="text-gray-600">
+                  양쪽 의사 모두 서명을 완료하면 자동으로 다음 단계로 진행됩니다. 서명 진행 상황은
+                  실시간으로 업데이트됩니다.
+                </p>
+              </div>
+              <FiCheckCircle className="h-6 w-6 text-yellow-500" />
+            </div>
+
+            {/* 3단계: PDF 다운로드 */}
+            <div className="flex items-start space-x-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100">
+                <span className="text-sm font-semibold text-green-600">3</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="mb-2 font-medium text-gray-900">PDF 파일 수신</h3>
+                <p className="text-gray-600">
+                  모든 서명이 완료되면 완성된 소견서 PDF 파일이 이메일로 전송됩니다. 첨부된 파일을
+                  다운로드하여 사용하실 수 있습니다.
+                </p>
+              </div>
+              <FiDownload className="h-6 w-6 text-green-500" />
+            </div>
+          </div>
+        </div>
+
+        {/* 액션 버튼 */}
+        <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+          <Button
+            type="secondary"
+            color="blue"
+            onClick={handleReturnToList}
+            className="flex items-center justify-center"
+          >
+            <FiArrowLeft className="mr-2 h-4 w-4" />
+            협진 기록으로 돌아가기
+          </Button>
+          <Button
+            type="primary"
+            color="blue"
+            onClick={handleGoToDashboard}
+            className="flex items-center justify-center"
+          >
+            대시보드로 이동
+          </Button>
         </div>
       </div>
     </div>
