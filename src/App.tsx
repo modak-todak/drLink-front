@@ -1,29 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainLayout from './layouts/MainLayout';
-import { AccountProvider } from './contexts/AccountContext';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AccountProvider } from "./contexts/AccountContext";
 
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/main/DashBoard';
-import ConsultationRecords from './pages/consultationManagement/ConsultationRecords';
-import LiveConsultation from './pages/consultationManagement/LiveConsultation';
-import MedicalOpinion from './pages/consultationManagement/MedicalOpinion';
-import ConsultationHistory from './pages/consultationManagement/ConsultationHistory';
-import HospitalManagement from './pages/recordsManagement/HospitalManagement';
-import AccessLogs from './pages/recordsManagement/AccessLogs';
-import HospitalDirectory from './pages/main/HospitalDirectory';
-import NotFound from './pages/NotFound';
-import AddDoctor from './pages/recordsManagement/AddDoctor';
-import DigitalSignature from './pages/recordsManagement/DigitalSignature';
-import FormInputsExample from './components/examples/FormInputsExample';
-import ButtonExample from './components/examples/ButtonExample';
-import TableExample from './components/examples/TableExample';
-import ModalExample from './components/examples/ModalExample';
-import FeedbackExample from './components/examples/FeedbackExample';
-import CardExample from './components/examples/CardExample';
-import NavigationExample from './components/examples/NavigationExample';
-import SidebarExample from './components/examples/SidebarExample';
-import ConsultationRequest from './pages/consultationManagement/ConsultationRequest';
+import MainLayout from "./layouts/MainLayout";
+import NotFound from "./pages/NotFound";
+import {
+  COMPONENTS_ROUTER_CONFIGS,
+  CONSULTATION_ROUTER_CONFIGS,
+  RECORDS_ROUTER_CONFIGS,
+  ROUTER_CONFIGS,
+} from "./routers";
 
 function App() {
   return (
@@ -31,31 +16,27 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="/home" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/consultation/consultation-request" element={<ConsultationRequest />} />
-            <Route path="/consultation/consultation-records" element={<ConsultationRecords />} />
-            <Route path="/consultation/live-consultation" element={<LiveConsultation />} />
-            <Route path="/consultation/medical-opinion" element={<MedicalOpinion />} />
-            <Route path="/management/consultation-history" element={<ConsultationHistory />} />
-            <Route path="/records/hospital" element={<HospitalManagement />} />
-            <Route path="/records/add-doctor" element={<AddDoctor />} />
-            <Route path="/records/digital-signature" element={<DigitalSignature />} />
-            <Route path="/records/access-logs" element={<AccessLogs />} />
-            <Route path="/main/hospital-directory" element={<HospitalDirectory />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/components/form-inputs" element={<FormInputsExample />} />
-            <Route path="/components/button" element={<ButtonExample />} />
-            <Route path="/components/table" element={<TableExample />} />
-            <Route path="/components/modal" element={<ModalExample />} />
-            <Route path="/components/feedback" element={<FeedbackExample />} />
-            <Route path="/components/card" element={<CardExample />} />
-            <Route path="/components/navigation" element={<NavigationExample />} />
-            <Route path="/components/sidebar" element={<SidebarExample />} />
+            {ROUTER_CONFIGS.map((configs) => (
+              <Route {...configs} />
+            ))}
+            <Route path="/consultation">
+              {CONSULTATION_ROUTER_CONFIGS.map((configs) => (
+                <Route {...configs} />
+              ))}
+            </Route>
+            <Route path="/components">
+              {COMPONENTS_ROUTER_CONFIGS.map((configs) => (
+                <Route {...configs} />
+              ))}
+            </Route>
+
+            <Route path="/records">
+              {RECORDS_ROUTER_CONFIGS.map((configs) => (
+                <Route {...configs} />
+              ))}
+            </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </AccountProvider>
