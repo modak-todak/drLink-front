@@ -105,6 +105,7 @@ const ConsultationRecordCard: React.FC<ConsultationRecordCardProps> = ({
     return null;
   };
 
+
   return (
     <Card type="content" variant="default" className="mb-4">
       {/* Header with Status */}

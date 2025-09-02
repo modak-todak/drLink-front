@@ -1,32 +1,34 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ConsultationStatusTabs, ConsultationRecordCard } from '../../components/consultation';
-import { mockConsultationRecords } from '../../data/mockData';
+import { ConsultationStatusTabs, ConsultationRecordCard, type ConsultationRecord } from '../../components/consultation';
 import { useAccount } from '../../contexts/AccountContext';
+import { getRecords } from '../../api/records/records';
 
 const ConsultationRecords: React.FC = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const [records, setRecords] = useState<ConsultationRecord[]>([])
   const navigate = useNavigate();
+
 
   const { isHospitalAccount, isHealthCenterAccount } = useAccount();
 
   // 상태별 협진 기록 필터링
   const filteredRecords = useMemo(() => {
     if (activeTab === 'all') {
-      return mockConsultationRecords;
+      return records;
     }
-    return mockConsultationRecords.filter((record) => record.status === activeTab);
-  }, [activeTab]);
+    return records.filter((record) => record.status === activeTab);
+  }, [activeTab, records]);
 
   // 상태별 개수 계산
   const counts = useMemo(() => {
-    const all = mockConsultationRecords.length;
-    const pending = mockConsultationRecords.filter((r) => r.status === 'pending').length;
-    const accepted = mockConsultationRecords.filter((r) => r.status === 'accepted').length;
-    const completed = mockConsultationRecords.filter((r) => r.status === 'completed').length;
+    const all = records.length;
+    const pending = records.filter((r) => r.status === 'pending').length;
+    const accepted = records.filter((r) => r.status === 'accepted').length;
+    const completed = records.filter((r) => r.status === 'completed').length;
 
     return { all, pending, accepted, completed };
-  }, []);
+  }, [records]);
 
   // 이벤트 핸들러들
   const handleViewDetails = (recordId: string) => {
@@ -37,11 +39,23 @@ const ConsultationRecords: React.FC = () => {
   const handleAccept = (recordId: string) => {
     console.log('협진 수락:', recordId);
     // TODO: 협진 수락 API 호출
+    alert('협진을 수락하였습니다.')
+    setRecords((prev) =>
+      prev.map((r) =>
+        r.id === recordId ? { ...r, status: 'accepted' } : r
+      )
+    )
   };
 
   const handleReject = (recordId: string) => {
     console.log('협진 거절:', recordId);
     // TODO: 협진 거절 API 호출
+    alert('협진을 거절하였습니다.')
+    setRecords((prev) =>
+      prev.filter((r) =>
+        r.id !== recordId 
+      )
+    )
   };
 
   const handleStartConsultation = (recordId: string) => {
@@ -54,6 +68,19 @@ const ConsultationRecords: React.FC = () => {
     console.log('소견서 다운로드:', recordId);
     // TODO: 소견서 다운로드 API 호출
   };
+
+  useEffect(() => {
+    const handleGetRecords = async ()=> {
+      try{
+        const res = await getRecords();
+        setRecords(res)
+      }
+      catch(err) {
+        console.log(err)
+      }
+    } 
+    handleGetRecords();
+  },[])
 
   return (
     <div className="h-full overflow-y-auto p-6 w-full max-w-full overflow-x-hidden">
