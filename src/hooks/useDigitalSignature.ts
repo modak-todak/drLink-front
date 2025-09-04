@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { handleSignRequest } from '../services/ucanSignService';
+import { formatDateTime } from '../utils/formatDateTime';
 
 export const useDigitalSignature = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,13 +33,13 @@ export const useDigitalSignature = () => {
         },
       ],
       fields: [
-        { fieldName: 'consultationDateTime', value: consultationDateTime },
+        { fieldName: 'consultationDateTime', value: formatDateTime(consultationDateTime) },
         { fieldName: 'department', value: department },
         { fieldName: 'diagnosisCode', value: diagnosisCode },
         { fieldName: 'diagnosticImpression', value: diagnosticImpression },
         { fieldName: 'recommendations', value: recommendations },
         { fieldName: 'additionalNotes', value: additionalNotes },
-        { fieldName: 'createdAt', value: createdAt },
+        { fieldName: 'createdAt', value: formatDateTime(createdAt) },
       ],
     };
   };
@@ -49,6 +50,7 @@ export const useDigitalSignature = () => {
 
     try {
       const data = mappingData(formData, doctorInfo);
+      console.log(formData,data);
       const result = await handleSignRequest(data);
 
       if (result?.success) {
